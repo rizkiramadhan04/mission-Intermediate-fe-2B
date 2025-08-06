@@ -67,7 +67,7 @@ function Login() {
                         type="text" 
                         name="username" 
                         id="username" 
-                        className="block rounded-2xl min-w-80 min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block rounded-2xl bg-white/15 min-w-80 min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan username"
                         onChange={handleChange}
                         value={form.username}
@@ -85,7 +85,7 @@ function Login() {
                         type="password" 
                         name="password" 
                         id="password" 
-                        className="block rounded-2xl min-w-80 min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block rounded-2xl bg-white/15 min-w-80 min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan kata sandi" 
                         onChange={handleChange}
                         value={form.password}

@@ -91,7 +91,7 @@ function UpdateProfile() {
                         type="text" 
                         name="username" 
                         id="username" 
-                        className="block min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-white text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block bg-white/15 min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-white text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan username"
                         value={form.username}
                         onChange={handleChange}
@@ -109,7 +109,7 @@ function UpdateProfile() {
                         type="password" 
                         name="password" 
                         id="password" 
-                        className="block min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block bg-white/15 min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan kata sandi" 
                         value={form.password}
                         onChange={handleChange}
@@ -127,7 +127,7 @@ function UpdateProfile() {
                         type="password" 
                         name="password_confirm" 
                         id="password_confirm" 
-                        className="block min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block bg-white/15 min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan konfirmasi kata sandi"
                         value={form.password_confirm || ""}
                         onChange={handleChange}

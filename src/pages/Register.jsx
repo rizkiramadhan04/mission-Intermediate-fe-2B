@@ -1,4 +1,4 @@
-import  React, { useEffect, useState }  from 'react'
+import  React, { useState }  from 'react'
 
 import Logo from '../assets/images/Logo.png';
 import GoogleLogo from '../assets/images/google.png';
@@ -20,11 +20,21 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-
-    // Load users from localStorage
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Optional: prevent duplicate emails
+  
+    // Load users from localStorage safely
+    const rawUsers = localStorage.getItem("users");
+    let storedUsers = [];
+  
+    try {
+      storedUsers = JSON.parse(rawUsers);
+      if (!Array.isArray(storedUsers)) {
+        storedUsers = [];
+      }
+    } catch (e) {
+      storedUsers = [];
+    }
+  
+    // Prevent duplicate usernames
     const isEmailExist = storedUsers.some(
       (user) => user.username === form.username
     );
@@ -32,17 +42,17 @@ function Register() {
       setMessage("Username already registered!");
       return;
     }
-
+  
     // Save new user
     storedUsers.push(form);
     localStorage.setItem("users", JSON.stringify(storedUsers));
-
+  
     setMessage("Registration successful!");
     setForm({ username: "", email: "", password: "", password_confirm: "" });
+  
     setTimeout(() => {
-      window.location.href = "/"; // redirect after a short delay
+      window.location.href = "/"; // redirect after 1s
     }, 1000);
-
   };
   
     return (
@@ -68,7 +78,7 @@ function Register() {
                         type="text" 
                         name="username" 
                         id="username" 
-                        className="block min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-white text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block bg-white/15 min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-white text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan username"
                         value={form.username}
                         onChange={handleChange}
@@ -86,7 +96,7 @@ function Register() {
                         type="password" 
                         name="password" 
                         id="password" 
-                        className="block min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block bg-white/15 min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan kata sandi" 
                         value={form.password}
                         onChange={handleChange}
@@ -104,7 +114,7 @@ function Register() {
                         type="password" 
                         name="password_confirm" 
                         id="password_confirm" 
-                        className="block min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
+                        className="block bg-white/15 min-w-80 rounded-2xl min-h-12 grow py-1.5 pr-3 pl-1 text-base text-white-900 placeholder:text-white-400 focus:outline-none sm:text-sm/6" 
                         placeholder="Masukan konfirmasi kata sandi"
                         value={form.password_confirm || ""}
                         onChange={handleChange}
